@@ -16,16 +16,8 @@ SOURCES += main.cpp\
    
 
 HEADERS  += mainwindow.h \
-    md5.h \
-    bigint/README \
-    bigint/NumberlikeArray.hh \
-    bigint/BigUnsignedInABase.hh \
-    bigint/BigUnsigned.hh \
-    bigint/BigIntegerUtils.hh \
-    bigint/BigIntegerLibrary.hh \
-    bigint/BigIntegerAlgorithms.hh \
-    bigint/BigInteger.hh
-
+    md5.h
 FORMS    += mainwindow.ui
-
-LIBS +=bigint.lib
+INCLUDEPATH += $$PWD/bigint
+DEPENDPATH += $$PWD/bigint
+LIBS += $$PWD/bigint/debug/bigint.lib

@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "bigint/BigIntegerLibrary.hh"
-#include "bigint/BigIntegerUtils.hh"
+#include "BigIntegerLibrary.hh"
+#include "BigIntegerUtils.hh"
 #include "md5.h"
 #include <QFile>
 #include <QTextStream>
