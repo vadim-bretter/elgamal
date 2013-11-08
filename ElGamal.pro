@@ -12,14 +12,8 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    md5.cpp \
-    bigint/testsuite.cc \
-    bigint/sample.cc \
-    bigint/BigUnsignedInABase.cc \
-    bigint/BigUnsigned.cc \
-    bigint/BigIntegerUtils.cc \
-    bigint/BigIntegerAlgorithms.cc \
-    bigint/BigInteger.cc
+    md5.cpp 
+   
 
 HEADERS  += mainwindow.h \
     md5.h \
@@ -34,8 +28,4 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-OTHER_FILES += \
-    bigint/run-testsuite \
-    bigint/Makefile \
-    bigint/ChangeLog \
-    bigint/.gitignore
+LIBS +=bigint.lib
