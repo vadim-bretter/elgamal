@@ -32,7 +32,11 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLineEdit" name="lineEdit_M"/>
+      <widget class="QLineEdit" name="lineEdit_M">
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
+       </property>
+      </widget>
      </item>
      <item row="25" column="2">
       <spacer name="verticalSpacer_2">
@@ -65,7 +69,11 @@
       </widget>
      </item>
      <item row="10" column="2">
-      <widget class="QLineEdit" name="lineEdit_k"/>
+      <widget class="QLineEdit" name="lineEdit_k">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item row="17" column="2">
       <widget class="QLineEdit" name="lineEdit_r"/>
@@ -89,6 +97,9 @@
      </item>
      <item row="2" column="1">
       <widget class="QPushButton" name="pushButton_M">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>M</string>
        </property>
@@ -96,6 +107,9 @@
      </item>
      <item row="17" column="1">
       <widget class="QPushButton" name="pushButton_r">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>r</string>
        </property>
@@ -103,6 +117,9 @@
      </item>
      <item row="22" column="1">
       <widget class="QPushButton" name="pushButton_y">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>y</string>
        </property>
@@ -110,6 +127,9 @@
      </item>
      <item row="6" column="1">
       <widget class="QPushButton" name="pushButton_p">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>p</string>
        </property>
@@ -117,6 +137,9 @@
      </item>
      <item row="10" column="1">
       <widget class="QPushButton" name="pushButton_k">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>k</string>
        </property>
@@ -160,6 +183,9 @@
      </item>
      <item row="1" column="0">
       <widget class="QPushButton" name="pushButton_m">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>m</string>
        </property>
@@ -181,13 +207,20 @@
      </item>
      <item row="3" column="0">
       <widget class="QPushButton" name="pushButton_g">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>g</string>
        </property>
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="lineEdit_g"/>
+      <widget class="QLineEdit" name="lineEdit_g">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item row="4" column="1">
       <widget class="QLabel" name="label_5">
@@ -199,7 +232,7 @@
      <item row="5" column="0">
       <widget class="QPushButton" name="pushButton_x">
        <property name="enabled">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="text">
         <string>x</string>
@@ -207,7 +240,11 @@
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QLineEdit" name="lineEdit_x"/>
+      <widget class="QLineEdit" name="lineEdit_x">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
      <item row="6" column="0">
       <layout class="QFormLayout" name="formLayout_2"/>
@@ -237,19 +274,22 @@
      </item>
      <item row="8" column="0">
       <widget class="QPushButton" name="pushButton_s">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="text">
         <string>s</string>
        </property>
       </widget>
      </item>
-     <item row="10" column="1">
+     <item row="14" column="1">
       <widget class="QLineEdit" name="lineEdit">
        <property name="enabled">
         <bool>false</bool>
        </property>
       </widget>
      </item>
-     <item row="9" column="1">
+     <item row="13" column="1">
       <spacer name="verticalSpacer_3">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -261,6 +301,26 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item row="10" column="1">
+      <widget class="QLineEdit" name="v1_2"/>
+     </item>
+     <item row="12" column="1">
+      <widget class="QLineEdit" name="v2"/>
+     </item>
+     <item row="9" column="1">
+      <widget class="QLabel" name="v1">
+       <property name="text">
+        <string>Результат V1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="11" column="1">
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>Результат V2</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>

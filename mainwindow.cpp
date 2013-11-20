@@ -2,11 +2,14 @@
 #include "ui_mainwindow.h"
 #include "BigIntegerLibrary.hh"
 #include "BigIntegerUtils.hh"
+#include "crypto_functions.h"
 #include "md5.h"
 #include <QFile>
 #include <QTextStream>
 #include <fstream>
 #include <QTime>
+#include<QValidator>
+#include<QRegExp>
 
 using namespace std;
 
@@ -19,6 +22,7 @@ void MainWindow::Subscribe()
     Inicialization(); // инициализация и генерация входных параметров
 
     string str;
+
 
     // инициализация переменных
     BigInteger m, p, g, k, x, y, r, s, p1, k1, temp;
@@ -69,6 +73,7 @@ void MainWindow::Verify()
 {
     // инициализация переменных
     BigInteger m, p, g, k, x, y, r, s, v1, v2;
+
     m = stringToBigInteger( ui->lineEdit_m->text().toStdString() );
     p = stringToBigInteger( ui->lineEdit_p->text().toStdString() );
     g = stringToBigInteger( ui->lineEdit_g->text().toStdString() );
@@ -78,16 +83,20 @@ void MainWindow::Verify()
     y = stringToBigInteger( ui->lineEdit_y->text().toStdString() );
     s = stringToBigInteger( ui->lineEdit_s->text().toStdString() );
 
+
     // ПРОВЕРКА ПОДПИСИ НА ПОДЛИННОСТЬ
 
     // **************************************************************************
 
-    if ( r < 1 || r == p - 1 ) {
+    if ( r < 1 || r == p - 1 )
+    {
         ui->lineEdit->setText( QString::fromLocal8Bit("Подпись подлинная!") );
     }
     else {
         v1 = modexp( g, m.getMagnitude(), p.getMagnitude() );
         v2 = (modexp( y, r.getMagnitude(), p.getMagnitude() ) *  modexp( r, s.getMagnitude(), p.getMagnitude() )) % p.getMagnitude();
+        ui->v1_2->setText(QString::fromStdString(bigIntegerToString(v1)));
+        ui->v2->setText(QString::fromStdString (bigIntegerToString(v2)));
         if ( v1 == v2 ) ui->lineEdit->setText( QString::fromLocal8Bit("Подпись подлинная!") );
         else ui->lineEdit->setText( QString::fromLocal8Bit("Подпись подделанная!") );
     }
@@ -105,8 +114,8 @@ void MainWindow::Inicialization() {
 void MainWindow::generate_m()
 {
     QString str = ui->lineEdit_M->text();
-    //str = hash( str );
-    ui->lineEdit_m->setText( str );
+    str = hash( str );
+    ui->lineEdit_m->setText(str);
 }
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -115,15 +124,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-  /*  QPalette *palette = new QPalette();
-    palette->setColor(QPalette::Base,Qt::white);
-    ui->lineEdit_p->setPalette(*palette);
-    ui->lineEdit_g->setPalette(*palette);
-    ui->lineEdit_y->setPalette(*palette);
-    palette->setColor(QPalette::Base,Qt::white);
-    ui->lineEdit_r->setPalette(*palette);
-    ui->lineEdit_s->setPalette(*palette);
-*/
     connect(ui->pushButton_Subscribe, SIGNAL( clicked() ), SLOT( Subscribe() ));
     connect(ui->pushButton_Verify, SIGNAL( clicked() ), SLOT( Verify() ));
     connect(ui->pushButton_m, SIGNAL( clicked() ), SLOT( generate_m() ));

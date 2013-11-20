@@ -16,7 +16,8 @@ SOURCES += main.cpp\
    
 
 HEADERS  += mainwindow.h \
-    md5.h
+    md5.h \
+    crypto_functions.h
 FORMS    += mainwindow.ui
 INCLUDEPATH += $$PWD/bigint
 DEPENDPATH += $$PWD/bigint
